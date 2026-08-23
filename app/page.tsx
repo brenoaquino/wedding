@@ -35,6 +35,7 @@ export default function Home() {
             <button onClick={() => scrollTo("nossa-historia")}>Nossa história</button>
             <button onClick={() => scrollTo("o-grande-dia")}>O grande dia</button>
             <button onClick={() => scrollTo("galeria")}>Galeria</button>
+            <button onClick={() => { window.location.href = "/presentes"; }}>Presentes</button>
           </div>
         </nav>
 
@@ -47,7 +48,6 @@ export default function Home() {
           <p className="hero-message">O nosso para sempre começa aqui.</p>
           <button className="outline-button" onClick={() => scrollTo("o-grande-dia")}>Descubra nossa história <span>↓</span></button>
         </div>
-        <p className="photo-note">Foto ilustrativa · Em breve, nosso pré-wedding</p>
       </section>
 
       <section className="intro" id="nossa-historia">
@@ -103,7 +103,6 @@ export default function Home() {
       <section className="gallery" id="galeria">
         <p className="eyebrow dark">Nossos momentos</p>
         <h2>Uma história contada em imagens</h2>
-        <p className="gallery-note">Estas imagens são apenas uma prévia. Em breve, este espaço será preenchido com as fotos do nosso pré-wedding.</p>
         <div className="gallery-grid">
           <figure className="gallery-tall"><img src="/images/casal-hero.jpg" alt="Casal abraçado em um campo" /></figure>
           <figure><img src="/images/casal-3.jpg" alt="Detalhe romântico de um casal de mãos dadas" /></figure>
@@ -113,7 +112,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-mark">B <span>♥</span> P</div>
-        <p>Com amor, Breno Pinheiro Aquino &amp; Paula Vitória Pereira Motoyama</p>
+        <p>Com amor, Paula e Breno</p>
         <small>7 de novembro de 2026 · Fortaleza, Ceará</small>
       </footer>
     </main>

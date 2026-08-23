@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -13,6 +13,12 @@ const montserrat = Montserrat({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-romantic",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${cormorant.variable} ${montserrat.variable}`}>{children}</body>
+      <body className={`${cormorant.variable} ${montserrat.variable} ${greatVibes.variable}`}>{children}</body>
     </html>
   );
 }

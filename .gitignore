@@ -40,3 +40,6 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Original high-resolution wedding photos (web-ready selections live in public/images)
+/photos/
