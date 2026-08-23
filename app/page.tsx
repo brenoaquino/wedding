@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import PixCopyButton from "./PixCopyButton";
 
 const weddingDate = new Date("2026-11-07T16:00:00-03:00");
+const CAMICADO_URL = "https://www.camicado.com.br/lista/convidado/brenoepaula";
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Casa+Montenegro%2C+Av.+Presidente+Costa+e+Silva%2C+3601%2C+Fortaleza%2C+CE";
+const WAZE_URL = "https://www.waze.com/ul?q=Casa%20Montenegro%2C%20Av.%20Presidente%20Costa%20e%20Silva%2C%203601%2C%20Fortaleza%2C%20CE&navigate=yes";
 
 function getTimeLeft() {
   const distance = Math.max(0, weddingDate.getTime() - Date.now());
@@ -35,7 +39,7 @@ export default function Home() {
             <button onClick={() => scrollTo("nossa-historia")}>Nossa história</button>
             <button onClick={() => scrollTo("o-grande-dia")}>O grande dia</button>
             <button onClick={() => scrollTo("galeria")}>Galeria</button>
-            <button onClick={() => { window.location.href = "/presentes"; }}>Presentes</button>
+            <button onClick={() => scrollTo("presentes")}>Presentes</button>
           </div>
         </nav>
 
@@ -93,11 +97,54 @@ export default function Home() {
           <p className="eyebrow dark">Reserve esta data</p>
           <h2>Um dia para guardar no coração</h2>
           <p>Estamos preparando cada detalhe com muito carinho para viver esta celebração ao lado de vocês.</p>
-          <div className="detail-row"><span>♡</span><div><strong>Cerimônia &amp; Recepção</strong><p>Local a confirmar</p></div></div>
-          <div className="detail-row"><span>⌖</span><div><strong>Fortaleza, Ceará</strong><p>Em breve, todos os detalhes</p></div></div>
-          <button className="solid-button" disabled>Confirmar presença em breve</button>
+          <div className="detail-row"><span>♡</span><div><strong>Cerimônia &amp; Recepção</strong><p>Casa Montenegro</p></div></div>
+          <div className="detail-row"><span>⌖</span><div><strong>Casa Montenegro</strong><p>Av. Presidente Costa e Silva, 3601 · Mondubim, Fortaleza — CE</p></div></div>
+          <div className="map-links" aria-label="Rotas para a Casa Montenegro">
+            <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer">Abrir no Google Maps <span>↗</span></a>
+            <a href={WAZE_URL} target="_blank" rel="noopener noreferrer">Abrir no Waze <span>↗</span></a>
+          </div>
+          <div className="rsvp-cta">
+            <span className="rsvp-heart" aria-hidden="true">♡</span>
+            <div>
+              <strong>Você celebra com a gente?</strong>
+              <p>Sua confirmação vai nos ajudar a preparar tudo com muito carinho.</p>
+            </div>
+            <button className="rsvp-button" type="button" disabled>
+              Confirmar minha presença
+              <small>Disponível em breve</small>
+            </button>
+          </div>
         </div>
         <div className="details-photo"><img src="/images/casal-2.jpg" alt="Casal celebrando junto ao pôr do sol" /></div>
+      </section>
+
+      <section className="gift-options home-gifts" id="presentes">
+        <p className="eyebrow dark">Lista de presentes</p>
+        <h2>O melhor presente é ter você conosco</h2>
+        <p className="gift-options-intro">A sua presença é o que realmente importa. Para quem desejar nos presentear, reunimos algumas opções com muito carinho.</p>
+
+        <div className="gift-option-grid">
+          <article className="gift-option-card">
+            <div className="brand-logo camicado-logo" aria-label="Camicado">camicado</div>
+            <h3>Lista na Camicado</h3>
+            <p>Nossa seleção para o começo da vida a dois está disponível no ambiente seguro da Camicado.</p>
+            <a className="gift-option-action" href={CAMICADO_URL} target="_blank" rel="noopener noreferrer">Ver lista <span>↗</span></a>
+          </article>
+
+          <article className="gift-option-card is-placeholder">
+            <div className="brand-logo amazon-logo" aria-label="Amazon">amazon<span>⌣</span></div>
+            <h3>Lista na Amazon</h3>
+            <p>Também estamos preparando uma segunda opção para facilitar a escolha de quem preferir.</p>
+            <span className="gift-option-disabled">Em breve</span>
+          </article>
+
+          <article className="gift-option-card pix-card">
+            <img className="pix-logo" src="/pix-logo.svg" alt="Pix" />
+            <h3>Um carinho via Pix</h3>
+            <p>Se fizer mais sentido para você, deixamos também a opção de contribuir livremente para os nossos novos planos — sem qualquer obrigação.</p>
+            <PixCopyButton />
+          </article>
+        </div>
       </section>
 
       <section className="gallery" id="galeria">
