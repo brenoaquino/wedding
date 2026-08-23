@@ -5,6 +5,7 @@ import PixCopyButton from "./PixCopyButton";
 
 const weddingDate = new Date("2026-11-07T16:00:00-03:00");
 const CAMICADO_URL = "https://www.camicado.com.br/lista/convidado/brenoepaula";
+const RSVP_FORM_URL = "https://script.google.com/macros/s/AKfycbxat0kjMDmL9NZz8hXlUaz6EZRPAr6YM60AAlzqLW9r3spqFos0iVnhLQ-T3PgP571dbw/exec";
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Casa+Montenegro%2C+Av.+Presidente+Costa+e+Silva%2C+3601%2C+Fortaleza%2C+CE";
 const WAZE_URL = "https://www.waze.com/ul?q=Casa%20Montenegro%2C%20Av.%20Presidente%20Costa%20e%20Silva%2C%203601%2C%20Fortaleza%2C%20CE&navigate=yes";
 
@@ -20,11 +21,29 @@ function getTimeLeft() {
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  const [rsvpOpen, setRsvpOpen] = useState(false);
 
   useEffect(() => {
     const timer = window.setInterval(() => setTimeLeft(getTimeLeft()), 1000);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!rsvpOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setRsvpOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [rsvpOpen]);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -109,9 +128,9 @@ export default function Home() {
               <strong>Você celebra com a gente?</strong>
               <p>Sua confirmação vai nos ajudar a preparar tudo com muito carinho.</p>
             </div>
-            <button className="rsvp-button" type="button" disabled>
+            <button className="rsvp-button" type="button" onClick={() => setRsvpOpen(true)}>
               Confirmar minha presença
-              <small>Disponível em breve</small>
+              <small>Leva menos de 1 minuto</small>
             </button>
           </div>
         </div>
@@ -162,6 +181,16 @@ export default function Home() {
         <p>Com amor, Paula e Breno</p>
         <small>7 de novembro de 2026 · Fortaleza, Ceará</small>
       </footer>
+
+      {rsvpOpen && (
+        <div className="rsvp-modal" role="dialog" aria-modal="true" aria-label="Confirmar presença">
+          <button className="rsvp-backdrop" type="button" onClick={() => setRsvpOpen(false)} aria-label="Fechar confirmação de presença" />
+          <div className="rsvp-modal-panel">
+            <button className="rsvp-close" type="button" onClick={() => setRsvpOpen(false)} aria-label="Fechar">×</button>
+            <iframe src={RSVP_FORM_URL} title="Formulário de confirmação de presença" />
+          </div>
+        </div>
+      )}
     </main>
   );
 }

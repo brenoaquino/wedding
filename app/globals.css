@@ -83,8 +83,14 @@ h2 em { color: var(--gold); font-weight: 400; }
 .rsvp-heart { grid-row: 1 / 3; align-self: start; color: var(--gold); font: 400 32px/1 var(--font-serif); }
 .rsvp-cta strong { font: 500 22px var(--font-serif); }
 .rsvp-cta p { margin: 7px 0 20px; color: var(--muted); font-size: 11px; line-height: 1.6; }
-.rsvp-button { grid-column: 1 / -1; width: 100%; padding: 17px 24px 14px; border: 0; color: white; background: var(--gold); box-shadow: 0 8px 22px rgba(188,164,109,.28); text-transform: uppercase; letter-spacing: 2px; font-size: 9px; cursor: not-allowed; opacity: .82; }
+.rsvp-button { grid-column: 1 / -1; width: 100%; padding: 17px 24px 14px; border: 0; color: white; background: var(--gold); box-shadow: 0 8px 22px rgba(188,164,109,.28); text-transform: uppercase; letter-spacing: 2px; font-size: 9px; cursor: pointer; transition: background .2s, transform .2s, box-shadow .2s; }
+.rsvp-button:hover { background: #a88f59; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(188,164,109,.38); }
 .rsvp-button small { display: block; margin-top: 7px; color: rgba(255,255,255,.78); font-size: 7px; letter-spacing: 1.2px; }
+.rsvp-modal { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 24px; overflow: hidden; overscroll-behavior: contain; }
+.rsvp-backdrop { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: rgba(39,35,28,.68); backdrop-filter: blur(6px); cursor: pointer; animation: modal-fade-in .28s ease both; }
+.rsvp-modal-panel { position: relative; width: min(720px, 100%); height: min(780px, calc(100svh - 48px)); overflow: hidden; border: 1px solid rgba(255,255,255,.45); border-radius: 24px; background: var(--paper); box-shadow: 0 28px 90px rgba(0,0,0,.3); animation: modal-enter .38s cubic-bezier(.2,.8,.2,1) both; }
+.rsvp-modal-panel iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: inherit; background: var(--paper); overscroll-behavior: contain; }
+.rsvp-close { position: absolute; z-index: 2; top: 12px; right: 14px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: rgba(255,253,249,.94); font: 300 25px/1 var(--font-sans); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,.08); }
 
 .gift-options { padding: 115px clamp(24px, 8vw, 130px); text-align: center; background: #efeadf; }
 .gift-options > h2 { max-width: 760px; margin: auto; }
@@ -122,6 +128,8 @@ footer p { margin: 20px 0 8px; font: italic 18px var(--font-serif); }
 footer small { opacity: .65; text-transform: uppercase; letter-spacing: 2px; font-size: 8px; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes modal-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-enter { from { opacity: 0; transform: translateY(24px) scale(.975); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
 
 @media (max-width: 760px) {
@@ -143,4 +151,9 @@ footer small { opacity: .65; text-transform: uppercase; letter-spacing: 2px; fon
   .gift-options { padding: 82px 20px; }
   .gift-option-grid { grid-template-columns: 1fr; }
   .gift-option-card { min-height: 330px; padding: 38px 28px; }
+  .rsvp-modal { place-items: end center; padding: 28px 0 0; }
+  .rsvp-modal-panel { width: 100%; height: min(92svh, 780px); border-width: 1px 0 0; border-radius: 24px 24px 0 0; animation-name: modal-sheet-enter; }
+  .rsvp-close { top: 12px; right: 12px; }
 }
+
+@keyframes modal-sheet-enter { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
