@@ -7,6 +7,7 @@ const weddingDate = new Date("2026-11-07T16:00:00-03:00");
 const CAMICADO_URL = "https://www.camicado.com.br/lista/convidado/brenoepaula";
 const RSVP_FORM_URL = "https://script.google.com/macros/s/AKfycbxat0kjMDmL9NZz8hXlUaz6EZRPAr6YM60AAlzqLW9r3spqFos0iVnhLQ-T3PgP571dbw/exec";
 const SPOTIFY_EMBED_URL = "https://open.spotify.com/embed/track/6VsvKPJ4xjVNKpI8VVZ3SV?utm_source=generator&theme=0";
+const BIBLE_VERSE_URL = "https://www.bibliaonline.com.br/acf/is/41/20";
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Casa+Montenegro%2C+Av.+Presidente+Costa+e+Silva%2C+3601%2C+Fortaleza%2C+CE";
 const WAZE_URL = "https://www.waze.com/ul?q=Casa%20Montenegro%2C%20Av.%20Presidente%20Costa%20e%20Silva%2C%203601%2C%20Fortaleza%2C%20CE&navigate=yes";
 
@@ -82,6 +83,10 @@ export default function Home() {
           <p className="date">07 · 11 · 2026</p>
           <p className="hero-message">O nosso para sempre começa aqui.</p>
         </div>
+        <a className="hero-verse" href={BIBLE_VERSE_URL} target="_blank" rel="noopener noreferrer">
+          <span>Isaías 41:20a · ACF</span>
+          <q>Para que todos vejam, e saibam, e considerem, e juntamente entendam que a mão do Senhor fez isto…</q>
+        </a>
       </section>
 
       <section className="intro story-section" id="nossa-historia">
@@ -163,7 +168,7 @@ export default function Home() {
             <span className="rsvp-label">RSVP</span>
             <span className="rsvp-heart" aria-hidden="true">♡</span>
             <strong>Queremos você com a gente</strong>
-            <p>Conte para nós se poderá estar presente nesse dia tão especial.</p>
+            <p>Confirme-nos se estará presente nesse dia tão especial.</p>
             <button className="rsvp-button" type="button" onClick={openRsvp}>
               <span>Confirmar presença</span>
               <span aria-hidden="true">→</span>
@@ -224,9 +229,9 @@ export default function Home() {
           type="button"
           onClick={() => setMusicOpen((open) => !open)}
           aria-expanded={musicOpen}
+          aria-label={musicOpen ? "Fechar player de música" : "Ouvir nossa música"}
         >
           <span className="music-toggle-icon" aria-hidden="true">♫</span>
-          <span>{musicOpen ? "Fechar player" : "Ouvir nossa música"}</span>
         </button>
       </aside>
 
