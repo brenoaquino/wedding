@@ -12,6 +12,7 @@ import {
   Pinyon_Script,
   Source_Sans_3,
 } from "next/font/google";
+import Link from "next/link";
 import "./fontes.css";
 
 const pinyon = Pinyon_Script({ subsets: ["latin"], weight: "400" });
@@ -50,7 +51,7 @@ export default function FontesPage() {
   return (
     <main className="font-lab">
       <header className="font-lab-header">
-        <a href="/">← Voltar ao site</a>
+        <Link href="/">← Voltar ao site</Link>
         <img src="/pb.png" alt="Monograma de Paula e Breno" />
         <p>Guia tipográfico</p>
         <h1>Escolha as fontes do nosso site</h1>
@@ -108,7 +109,7 @@ export default function FontesPage() {
 
       <footer className="font-lab-footer">
         <p>Anote uma opção para o hero e outra para o texto.</p>
-        <a href="/">Voltar para Breno &amp; Paula →</a>
+        <Link href="/">Voltar para Breno &amp; Paula →</Link>
       </footer>
     </main>
   );

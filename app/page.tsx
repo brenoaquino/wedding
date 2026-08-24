@@ -6,6 +6,7 @@ import PixCopyButton from "./PixCopyButton";
 const weddingDate = new Date("2026-11-07T16:00:00-03:00");
 const CAMICADO_URL = "https://www.camicado.com.br/lista/convidado/brenoepaula";
 const RSVP_FORM_URL = "https://script.google.com/macros/s/AKfycbxat0kjMDmL9NZz8hXlUaz6EZRPAr6YM60AAlzqLW9r3spqFos0iVnhLQ-T3PgP571dbw/exec";
+const SPOTIFY_EMBED_URL = "https://open.spotify.com/embed/track/6VsvKPJ4xjVNKpI8VVZ3SV?utm_source=generator&theme=0";
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Casa+Montenegro%2C+Av.+Presidente+Costa+e+Silva%2C+3601%2C+Fortaleza%2C+CE";
 const WAZE_URL = "https://www.waze.com/ul?q=Casa%20Montenegro%2C%20Av.%20Presidente%20Costa%20e%20Silva%2C%203601%2C%20Fortaleza%2C%20CE&navigate=yes";
 
@@ -23,6 +24,7 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState<ReturnType<typeof getTimeLeft> | null>(null);
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(true);
+  const [musicOpen, setMusicOpen] = useState(false);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setTimeLeft(getTimeLeft()));
@@ -79,7 +81,6 @@ export default function Home() {
           <div className="gold-line" />
           <p className="date">07 · 11 · 2026</p>
           <p className="hero-message">O nosso para sempre começa aqui.</p>
-          <button className="outline-button" onClick={() => scrollTo("o-grande-dia")}>Descubra nossa história <span>↓</span></button>
         </div>
       </section>
 
@@ -206,6 +207,28 @@ export default function Home() {
         <p>Com amor, Paula e Breno</p>
         <small>7 de novembro de 2026 · Fortaleza, Ceará</small>
       </footer>
+
+      <aside className={`music-player${musicOpen ? " is-open" : ""}`} aria-label="Nossa música">
+        {musicOpen && (
+          <div className="music-embed">
+            <iframe
+              src={SPOTIFY_EMBED_URL}
+              title="invisible string, de Taylor Swift, no Spotify"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <button
+          className="music-toggle"
+          type="button"
+          onClick={() => setMusicOpen((open) => !open)}
+          aria-expanded={musicOpen}
+        >
+          <span className="music-toggle-icon" aria-hidden="true">♫</span>
+          <span>{musicOpen ? "Fechar player" : "Ouvir nossa música"}</span>
+        </button>
+      </aside>
 
       {rsvpOpen && (
         <div className="rsvp-modal" role="dialog" aria-modal="true" aria-label="Confirmar presença">
