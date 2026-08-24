@@ -85,6 +85,7 @@ h2 em { color: var(--gold); font-weight: 400; }
 .detail-row > span { color: var(--gold); font-size: 24px; width: 25px; text-align: center; }
 .detail-row strong { font: 500 20px var(--font-serif); }
 .detail-row p { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
+.ceremony-time { color: var(--gold); font: 500 16px var(--font-sans); letter-spacing: 1px; white-space: nowrap; }
 .map-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .map-links a { display: inline-flex; align-items: center; gap: 12px; padding: 13px 17px; border: 1px solid var(--gold-light); color: var(--ink); background: transparent; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; font-size: 8px; transition: color .2s, background .2s, border-color .2s; }
 .map-links a:hover { color: white; background: var(--gold); border-color: var(--gold); }

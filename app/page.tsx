@@ -158,7 +158,7 @@ export default function Home() {
           <p className="eyebrow dark">Reserve esta data</p>
           <h2>Um dia para guardar no coração</h2>
           <p>Estamos preparando cada detalhe com muito carinho para viver esta celebração ao lado de vocês.</p>
-          <div className="detail-row"><span>♡</span><div><strong>Cerimônia &amp; Recepção</strong><p>Casa Montenegro</p></div></div>
+          <div className="detail-row"><span>♡</span><div><strong>Cerimônia &amp; Recepção <span className="ceremony-time">· 16h</span></strong><p>Casa Montenegro</p></div></div>
           <div className="detail-row"><span>⌖</span><div><strong>Casa Montenegro</strong><p>Av. Presidente Costa e Silva, 3601 · Mondubim, Fortaleza — CE</p></div></div>
           <div className="map-links" aria-label="Rotas para a Casa Montenegro">
             <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer">Abrir no Google Maps <span>↗</span></a>
