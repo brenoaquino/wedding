@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Great_Vibes, Montserrat } from "next/font/google";
+import { Great_Vibes, Lora, Montserrat, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const lora = Lora({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -17,6 +17,12 @@ const montserrat = Montserrat({
 
 const greatVibes = Great_Vibes({
   variable: "--font-romantic",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const pinyon = Pinyon_Script({
+  variable: "--font-invitation-script",
   subsets: ["latin"],
   weight: "400",
 });
@@ -42,7 +48,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${cormorant.variable} ${montserrat.variable} ${greatVibes.variable}`}>{children}</body>
+      <body className={`${lora.variable} ${montserrat.variable} ${greatVibes.variable} ${pinyon.variable}`}>{children}</body>
     </html>
   );
 }
