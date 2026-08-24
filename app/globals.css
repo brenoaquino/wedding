@@ -105,6 +105,13 @@ h2 em { color: var(--gold); font-weight: 400; }
 .rsvp-modal-panel { position: relative; width: min(720px, 100%); height: min(780px, calc(100svh - 48px)); overflow: hidden; border: 1px solid rgba(255,255,255,.45); border-radius: 24px; background: var(--paper); box-shadow: 0 28px 90px rgba(0,0,0,.3); animation: modal-enter .38s cubic-bezier(.2,.8,.2,1) both; }
 .rsvp-modal-panel iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: inherit; background: var(--paper); overscroll-behavior: contain; }
 .rsvp-close { position: absolute; z-index: 2; top: 12px; right: 14px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: rgba(255,253,249,.94); font: 300 25px/1 var(--font-sans); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,.08); }
+.rsvp-loading { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; padding: 32px; color: var(--ink); background: radial-gradient(circle at 50% 42%, #fffdf9 0, #f7f1e6 72%); text-align: center; animation: modal-fade-in .2s ease both; }
+.rsvp-loading-content { display: flex; flex-direction: column; align-items: center; }
+.rsvp-loading-spinner { position: relative; width: 64px; height: 64px; margin-bottom: 25px; display: grid; place-items: center; }
+.rsvp-loading-spinner::before { content: ''; position: absolute; inset: 0; border: 1px solid var(--line); border-top-color: var(--gold); border-radius: 50%; animation: rsvp-spin .9s linear infinite; }
+.rsvp-loading-spinner span { color: var(--gold); font: 400 29px/1 var(--font-serif); }
+.rsvp-loading strong { font: 500 25px/1.2 var(--font-serif); }
+.rsvp-loading p { margin: 10px 0 0; color: var(--muted); font: 400 13px/1.6 var(--font-serif); }
 
 .gift-options { padding: 115px clamp(24px, 8vw, 130px); text-align: center; background: #efeadf; }
 .gift-options > h2 { max-width: 760px; margin: auto; }
@@ -134,6 +141,7 @@ footer small { opacity: .65; text-transform: uppercase; letter-spacing: 2px; fon
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes modal-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes modal-enter { from { opacity: 0; transform: translateY(24px) scale(.975); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes rsvp-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
 
 @media (max-width: 760px) {

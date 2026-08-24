@@ -22,6 +22,7 @@ function getTimeLeft() {
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState<ReturnType<typeof getTimeLeft> | null>(null);
   const [rsvpOpen, setRsvpOpen] = useState(false);
+  const [rsvpLoading, setRsvpLoading] = useState(true);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setTimeLeft(getTimeLeft()));
@@ -51,6 +52,11 @@ export default function Home() {
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const openRsvp = () => {
+    setRsvpLoading(true);
+    setRsvpOpen(true);
   };
 
   return (
@@ -157,7 +163,7 @@ export default function Home() {
             <span className="rsvp-heart" aria-hidden="true">♡</span>
             <strong>Queremos você com a gente</strong>
             <p>Conte para nós se poderá estar presente nesse dia tão especial.</p>
-            <button className="rsvp-button" type="button" onClick={() => setRsvpOpen(true)}>
+            <button className="rsvp-button" type="button" onClick={openRsvp}>
               <span>Confirmar presença</span>
               <span aria-hidden="true">→</span>
             </button>
@@ -188,8 +194,8 @@ export default function Home() {
 
           <article className="gift-option-card pix-card">
             <img className="pix-logo" src="/pix-logo.svg" alt="Pix" />
-            <h3>Um carinho via Pix</h3>
-            <p>Se fizer mais sentido para você, deixamos também a opção de contribuir livremente para os nossos novos planos — sem qualquer obrigação.</p>
+            <h3>Pix</h3>
+            <p>A noiva não é muito fã dessa opção, mas, se ela for a melhor para você, a chave está em nome de Breno Aquino.</p>
             <PixCopyButton />
           </article>
         </div>
@@ -206,7 +212,21 @@ export default function Home() {
           <button className="rsvp-backdrop" type="button" onClick={() => setRsvpOpen(false)} aria-label="Fechar confirmação de presença" />
           <div className="rsvp-modal-panel">
             <button className="rsvp-close" type="button" onClick={() => setRsvpOpen(false)} aria-label="Fechar">×</button>
-            <iframe src={RSVP_FORM_URL} title="Formulário de confirmação de presença" />
+            {rsvpLoading && (
+              <div className="rsvp-loading" role="status" aria-live="polite">
+                <div className="rsvp-loading-content">
+                  <span className="rsvp-loading-spinner" aria-hidden="true"><span>♡</span></span>
+                  <strong>Abrindo sua confirmação</strong>
+                  <p>Preparando tudo com carinho…</p>
+                </div>
+              </div>
+            )}
+            <iframe
+              src={RSVP_FORM_URL}
+              title="Formulário de confirmação de presença"
+              aria-busy={rsvpLoading}
+              onLoad={() => setRsvpLoading(false)}
+            />
           </div>
         </div>
       )}
