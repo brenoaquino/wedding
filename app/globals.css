@@ -46,9 +46,9 @@ h2 em { color: var(--gold); font-weight: 400; }
 .story-section { padding-right: 0; padding-bottom: 0; padding-left: 0; }
 .story-section > .eyebrow, .story-section > h2, .story-section > .lead { margin-right: auto; margin-left: auto; padding-right: 24px; padding-left: 24px; }
 .story-editorial { margin-top: 72px; border-top: 1px solid var(--line); }
-.story-panel { height: 640px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(350px, .65fr); overflow: hidden; background: #f0eadf; text-align: left; }
+.story-panel { min-height: 640px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(350px, .65fr); overflow: hidden; background: #f0eadf; text-align: left; }
 .story-panel:nth-child(even) { grid-template-columns: minmax(350px, .65fr) minmax(0, 1.35fr); background: var(--paper); }
-.story-panel > img { grid-column: 1; grid-row: 1; width: 100%; height: 640px; object-fit: cover; filter: saturate(.84) contrast(1.01); transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .7s; }
+.story-panel > img { grid-column: 1; grid-row: 1; width: 100%; height: 100%; object-fit: cover; filter: saturate(.84) contrast(1.01); transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .7s; }
 .story-panel:hover > img { transform: scale(1.025); filter: saturate(.98); }
 .story-panel:nth-child(even) > img { grid-column: 2; }
 .story-panel-shade { display: none; }
@@ -61,6 +61,7 @@ h2 em { color: var(--gold); font-weight: 400; }
 .story-number { display: block; margin-bottom: 22px; color: var(--gold-light); font: 400 48px/1 var(--font-serif); }
 .story-panel-copy h3 { margin: 18px 0 26px; font: 400 clamp(34px, 4vw, 53px)/1.1 var(--font-serif); }
 .story-panel-copy p { margin: 0; color: var(--muted); font: 400 15px/1.8 var(--font-serif); }
+.story-panel-copy p + p { margin-top: 18px; }
 .chapter { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 9px; }
 .details-copy > p { color: var(--muted); line-height: 1.85; font-size: 13px; }
 .signature { color: var(--gold); font: 400 42px var(--font-romantic); margin-top: 32px; }

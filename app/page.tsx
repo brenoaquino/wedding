@@ -92,7 +92,7 @@ export default function Home() {
       <section className="intro story-section" id="nossa-historia">
         <p className="eyebrow dark">A nossa história</p>
         <h2>Do encontro ao <em>sim</em></h2>
-        <p className="lead">Entre tantos caminhos possíveis, o amor nos trouxe até aqui. E agora, com o coração cheio de alegria, queremos celebrar este novo capítulo ao lado das pessoas que amamos.</p>
+        <p className="lead">Uma amizade que cresceu em amor, sustentada pela fé e por tantos dias compartilhados.</p>
 
         <div className="story-editorial">
           <article className="story-panel story-panel-one">
@@ -100,8 +100,9 @@ export default function Home() {
             <div className="story-panel-shade" />
             <div className="story-panel-copy">
               <span className="chapter">Capítulo um</span>
-              <h3>Quando dois caminhos se tornam um</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h3>Antes do namoro, uma amizade</h3>
+              <p>Tudo começou ainda na escola, na nona série, entre aulas para as Olimpíadas de Física, tardes de estudo e conversas que foram ficando cada vez mais longas. Antes de existir um namoro, nasceu uma amizade — embora nós dois já soubéssemos que havia algo a mais por ali.</p>
+              <p>Ainda não era a nossa hora, então continuamos amigos e acabamos nos tornando melhores amigos. Foram anos de conversas todos os dias, primeiro pelo MSN e depois por onde desse. Dividíamos o que tinha acontecido no dia, nossos medos, alegrias, planos e sonhos. De algum jeito, começamos a dividir a vida antes mesmo de começarmos a namorar.</p>
             </div>
           </article>
 
@@ -110,7 +111,9 @@ export default function Home() {
             <div className="story-panel-shade" />
             <div className="story-panel-copy">
               <span className="story-number">02</span>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <h3>A fé no centro</h3>
+              <p>Foi também nesse período que a fé passou a fazer parte da nossa história. Paula orava para que Breno conhecesse a Deus e, alguns anos depois, ele aceitou um convite para ir à igreja. Em um sábado pela manhã, uma oração antiga começava a ser respondida — e nascia algo que, dali em diante, estaria no centro da vida que construiríamos juntos.</p>
+              <p>Em março de 2016, depois de anos de amizade e espera, finalmente começamos a namorar. Logo estávamos estudando no mesmo campus e nossos dias ganharam almoços juntos, sorvetes entre uma aula e outra e Breno esperando as aulas da Paula terminarem para buscá-la no fim do dia. Sem grandes acontecimentos, fomos descobrindo como era bom simplesmente ter o outro por perto.</p>
             </div>
           </article>
 
@@ -119,7 +122,10 @@ export default function Home() {
             <div className="story-panel-shade" />
             <div className="story-panel-copy">
               <span className="story-number">03</span>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <h3>Saudade, distância e reencontro</h3>
+              <p>Em 2019, isso mudou. Breno foi trabalhar em São Paulo e começamos uma fase feita de saudade, mensagens, malas e aeroportos. Sempre que podia, ele voltava para Fortaleza — muitas vezes trazendo alguma lembrancinha e, inexplicavelmente, até atravessando São Paulo atrás de presentes de papelaria, apesar de seu conhecido ódio por papel.</p>
+              <p>Então veio a pandemia, os voos pararam e os dias difíceis chegaram. A distância nos exigiu mais do que esperávamos e houve coisas que precisamos reconstruir entre nós. Reconstruímos. Em 2021, depois de dois anos contando o tempo entre GRU e FOR, Breno voltou definitivamente para Fortaleza.</p>
+              <p>De lá para cá, estivemos juntos em muito do que nos transformou. Celebramos formatura, trabalho, mestrado e a chegada dos nossos sobrinhos; enfrentamos doenças, despedidas e momentos difíceis dentro das nossas famílias. Em alguns dias coube comemorar; em outros, apenas estar ao lado. E estivemos.</p>
             </div>
           </article>
 
@@ -128,7 +134,10 @@ export default function Home() {
             <div className="story-panel-shade" />
             <div className="story-panel-copy">
               <span className="story-number">04</span>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <h3>O começo da nossa família</h3>
+              <p>Em 2025, depois de quase uma década de namoro, fomos parar em Veneza. Na ilha de San Giorgio Maggiore, fechada naquele dia para a gravação de um filme e, por acaso, quase inteira só para nós, ficamos noivos. Foi um daqueles raros momentos em que a realidade parece ter preparado o cenário melhor do que qualquer plano conseguiria.</p>
+              <p>Agora nos preparamos para o dia 7 de novembro de 2026. Quando olhamos para trás, percebemos que muita coisa mudou desde aqueles dois adolescentes que estudavam Física juntos — nós também mudamos. Mas ainda reconhecemos neles algo que permanece muito nosso: a vontade de contar um ao outro o que aconteceu no dia, dividir uma preocupação, fazer planos e imaginar o que vem depois.</p>
+              <p>Talvez seja essa a melhor maneira de contar a nossa história. Começamos compartilhando conversas, depois os dias, as famílias, as dificuldades e os sonhos. Agora, depois de tantos anos dividindo a vida, vamos começar a nossa própria família.</p>
               <div className="signature">Paula &amp; Breno</div>
             </div>
           </article>
