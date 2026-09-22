@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PixCopyButton from "./PixCopyButton";
 
 const weddingDate = new Date("2026-11-07T16:00:00-03:00");
@@ -26,6 +26,8 @@ export default function Home() {
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(true);
   const [musicOpen, setMusicOpen] = useState(false);
+  const [heroMuted, setHeroMuted] = useState(false);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setTimeLeft(getTimeLeft()));
@@ -65,6 +67,41 @@ export default function Home() {
   return (
     <main>
       <section className="hero" id="inicio">
+        <video
+          ref={heroVideoRef}
+          className="hero-video"
+          autoPlay
+          muted={heroMuted}
+          onVolumeChange={(event) => setHeroMuted(event.currentTarget.muted)}
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/casal-hero.jpg"
+          aria-hidden="true"
+        >
+          <source src="/videos/ensaio-hero.mp4" type="video/mp4" />
+        </video>
+        <button
+          type="button"
+          className="hero-sound-toggle"
+          aria-label={heroMuted ? "Ativar som do vídeo" : "Silenciar vídeo"}
+          onClick={() => {
+            const video = heroVideoRef.current;
+            if (!video) return;
+            video.muted = !video.muted;
+            setHeroMuted(video.muted);
+            if (video.paused) void video.play().catch(() => {
+              video.muted = true;
+              setHeroMuted(true);
+            });
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+            {heroMuted ? <path d="m16 9 6 6m0-6-6 6" /> : <path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" />}
+          </svg>
+          {heroMuted ? "Ativar som" : "Silenciar"}
+        </button>
         <nav className="nav" aria-label="Navegação principal">
           <button className="monogram" onClick={() => scrollTo("inicio")} aria-label="Ir ao início">
             <img src="/pb.png" alt="" aria-hidden="true" />
@@ -236,7 +273,13 @@ export default function Home() {
         <button
           className="music-toggle"
           type="button"
-          onClick={() => setMusicOpen((open) => !open)}
+          onClick={() => {
+            if (!musicOpen) {
+              if (heroVideoRef.current) heroVideoRef.current.muted = true;
+              setHeroMuted(true);
+            }
+            setMusicOpen((open) => !open);
+          }}
           aria-expanded={musicOpen}
           aria-label={musicOpen ? "Fechar player de música" : "Ouvir nossa música"}
         >
