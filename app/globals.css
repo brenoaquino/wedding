@@ -18,7 +18,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .hero { min-height: 100svh; position: relative; display: grid; place-items: center; color: white; background: url('/images/casal-hero.jpg') center 58% / cover no-repeat; overflow: hidden; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(39,35,28,.48), rgba(56,46,32,.18) 45%, rgba(31,27,21,.48)); }
-.nav { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 28px clamp(24px, 6vw, 92px); border-bottom: 1px solid rgba(255,255,255,.28); }
+.nav { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 28px clamp(24px, 6vw, 92px); }
 .nav button { color: white; background: none; border: 0; cursor: pointer; }
 .monogram { width: 55px; height: 47px; padding: 0; }
 .monogram img { width: 48px; height: 48px; object-fit: contain; }
