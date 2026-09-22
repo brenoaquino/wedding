@@ -27,7 +27,36 @@ export default function Home() {
   const [rsvpLoading, setRsvpLoading] = useState(true);
   const [musicOpen, setMusicOpen] = useState(false);
   const [heroMuted, setHeroMuted] = useState(false);
+  const [heroPlaybackBlocked, setHeroPlaybackBlocked] = useState(false);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    let cancelled = false;
+
+    const startVideo = async () => {
+      try {
+        await video.play();
+      } catch (error) {
+        if (cancelled) return;
+        if (!(error instanceof DOMException) || error.name !== "NotAllowedError") {
+          setHeroPlaybackBlocked(true);
+          return;
+        }
+        video.muted = true;
+        setHeroMuted(true);
+        try {
+          await video.play();
+        } catch {
+          if (!cancelled) setHeroPlaybackBlocked(true);
+        }
+      }
+    };
+
+    void startVideo();
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setTimeLeft(getTimeLeft()));
@@ -73,6 +102,7 @@ export default function Home() {
           autoPlay
           muted={heroMuted}
           onVolumeChange={(event) => setHeroMuted(event.currentTarget.muted)}
+          onPlaying={() => setHeroPlaybackBlocked(false)}
           loop
           playsInline
           preload="metadata"
@@ -84,15 +114,16 @@ export default function Home() {
         <button
           type="button"
           className="hero-sound-toggle"
-          aria-label={heroMuted ? "Ativar som do vídeo" : "Silenciar vídeo"}
+          aria-label={heroPlaybackBlocked ? "Reproduzir vídeo" : heroMuted ? "Ativar som do vídeo" : "Silenciar vídeo"}
           onClick={() => {
             const video = heroVideoRef.current;
             if (!video) return;
-            video.muted = !video.muted;
+            video.muted = heroPlaybackBlocked ? false : !video.muted;
             setHeroMuted(video.muted);
             if (video.paused) void video.play().catch(() => {
               video.muted = true;
               setHeroMuted(true);
+              setHeroPlaybackBlocked(true);
             });
           }}
         >
@@ -100,7 +131,7 @@ export default function Home() {
             <path d="M11 5 6 9H3v6h3l5 4V5Z" />
             {heroMuted ? <path d="m16 9 6 6m0-6-6 6" /> : <path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" />}
           </svg>
-          {heroMuted ? "Ativar som" : "Silenciar"}
+          {heroPlaybackBlocked ? "Reproduzir vídeo" : heroMuted ? "Ativar som" : "Silenciar"}
         </button>
         <nav className="nav" aria-label="Navegação principal">
           <button className="monogram" onClick={() => scrollTo("inicio")} aria-label="Ir ao início">
