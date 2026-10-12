@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import PixCopyButton from "./PixCopyButton";
 
 const weddingDate = new Date("2026-11-07T16:00:00-03:00");
@@ -142,6 +143,7 @@ export default function Home() {
             <button onClick={() => scrollTo("o-grande-dia")}>O grande dia</button>
             <button onClick={() => scrollTo("presentes")}>Presentes</button>
           </div>
+          <Link className="nav-padrinhos" href="/padrinhos">Padrinhos e madrinhas</Link>
         </nav>
 
         <div className="hero-overlay" />
