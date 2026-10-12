@@ -1,0 +1,83 @@
+.page { background: var(--paper); --accent: #897344; }
+.page section { scroll-margin-top: 30px; }
+.hero { position: relative; display: grid; place-items: center; min-height: 620px; min-height: min(760px, 90svh); color: white; overflow: hidden; }
+.heroPhoto, .shade { position: absolute; inset: 0; }
+.heroPhoto { object-position: center 48%; }
+.shade { background: linear-gradient(180deg, rgba(31,30,25,.38), rgba(31,30,25,.32) 35%, rgba(31,30,25,.65)); }
+.nav { position: absolute; z-index: 1; inset: 28px clamp(24px, 6vw, 92px) auto; display: flex; align-items: center; justify-content: space-between; }
+.monogram { width: 48px; height: 48px; }
+.monogram img { object-fit: contain; }
+.back { color: white; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(217,200,159,.6); }
+.back:hover { color: var(--gold-light); }
+.heroCopy { position: relative; text-align: center; padding: 150px 24px 70px; }
+.heroCopy > :global(.eyebrow) { color: var(--gold-light); letter-spacing: 3px; line-height: 1.8; }
+.heroCopy h1 { margin: 28px 0 0; font: 400 clamp(64px, 10vw, 122px)/.95 var(--font-invitation-script); }
+.heroCopy h1 span { color: var(--gold-light); font-size: .65em; }
+.subtitle { font: italic 18px/1.6 var(--font-serif); }
+.date { margin: 30px 0 0; font-size: 10px; letter-spacing: 5px; }
+.guideNav { display: flex; align-items: center; justify-content: center; gap: 52px; padding: 27px 24px; border-bottom: 1px solid var(--line); }
+.guideNav > span { color: var(--muted); font: italic 16px var(--font-serif); margin-right: 24px; }
+.guideNav a { color: var(--accent); text-decoration: none; font: italic 14px var(--font-serif); }
+.guideNav a span { margin-left: 10px; color: var(--ink); font: 500 9px var(--font-sans); text-transform: uppercase; letter-spacing: 1.5px; }
+.guideNav a:hover span { color: var(--accent); }
+.letter { max-width: 920px; margin: auto; padding: 100px 24px 85px; text-align: center; }
+.letter h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.25; }
+.letterBody { max-width: 630px; margin: 34px auto 0; color: #716a61; font: 400 17px/1.95 var(--font-serif); }
+.salutation { color: var(--ink); font-style: italic; }
+.arrival { position: relative; max-width: 1080px; margin: 0 auto; padding: 60px 70px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 70px; align-items: center; background: #eee8dc; }
+.arrival::before { content: ''; position: absolute; inset: 10px; border: 1px solid #d6c9ae; pointer-events: none; }
+.arrival h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.2; }
+.arrival p { color: #716a61; font: 400 16px/1.85 var(--font-serif); margin-bottom: 0; }
+.location { border-left: 1px solid #d6c9ae; padding-left: 60px; }
+.location > span { display: block; color: var(--accent); font-size: 9px; text-transform: uppercase; letter-spacing: 2px; }
+.arrivalTime { margin: 12px 0 22px; font: 400 clamp(64px, 7vw, 90px)/1 var(--font-serif); letter-spacing: -4px; }
+.arrivalTime span { font-size: .45em; font-style: italic; color: var(--accent); margin: 0 5px; }
+.location strong { font: 400 24px var(--font-serif); }
+.location p { margin: 8px 0 22px; font-size: 14px; }
+.location a { display: inline-flex; align-items: center; gap: 28px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding: 0 0 10px; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; }
+.location a:hover { color: var(--accent); }
+.attire { max-width: 1128px; padding: 110px 24px 100px; margin: auto; text-align: center; }
+.attire h2 { font-size: clamp(36px, 4.8vw, 58px); }
+.attireIntro { color: #716a61; margin: 24px auto 54px; font: 400 17px/1.8 var(--font-serif); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; text-align: left; }
+.card { position: relative; padding: 45px 42px; border: 1px solid var(--line); border-top: 2px solid #bca46d; background: linear-gradient(145deg, #f9f6ef, #fffdf9); }
+.attireIcon { position: absolute; top: 28px; right: 30px; width: 54px; height: 74px; color: #a38b59; }
+.cardNumber { display: block; color: var(--accent); font: 500 8px var(--font-sans); letter-spacing: 3px; text-transform: uppercase; margin: 0 0 36px; }
+.card h3 { margin: 18px 0 12px; font: 400 33px/1.2 var(--font-serif); }
+.cardLead { color: #716a61; font: italic 16px/1.7 var(--font-serif); margin: 0 0 28px; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
+.card ul { list-style: none; margin: 0; padding: 0; color: var(--ink); font: 400 16px/1.85 var(--font-serif); }
+.card li { position: relative; padding-left: 20px; }
+.card li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border: 1px solid var(--accent); transform: rotate(45deg); }
+.card li + li { margin-top: 21px; }
+.card strong { font-weight: 600; }
+.closing { position: relative; padding: 85px 24px 95px; text-align: center; border-top: 1px solid var(--line); background: #f0eadf; }
+.closing::before { content: ''; display: block; width: 1px; height: 48px; background: #c6b58e; margin: -110px auto 40px; }
+.closing h2 { font-size: clamp(38px, 5vw, 58px); margin: 25px 0 30px; }
+.closing p { max-width: 600px; margin: 18px auto; color: #716a61; font: 400 17px/1.85 var(--font-serif); }
+.closing > :global(.eyebrow) { color: var(--accent); font: 500 9px var(--font-sans); letter-spacing: 3px; }
+.closing .withLove { margin-top: 32px; font-style: italic; }
+.closing :global(.signature) { margin-top: 8px; color: var(--accent); font-size: 46px; }
+.page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+@media (max-width: 760px) {
+  .hero { min-height: 580px; }
+  .heroCopy { padding-top: 140px; }
+  .nav { inset: 22px 24px auto; }
+  .back { font-size: 8px; letter-spacing: 1.5px; }
+  .heroCopy > :global(.eyebrow) { max-width: 260px; margin-inline: auto; }
+  .guideNav { gap: 24px; padding: 24px 16px; }
+  .guideNav > span { display: none; }
+  .guideNav a { font-size: 12px; }
+  .guideNav a span { font-size: 8px; letter-spacing: .8px; margin-left: 6px; }
+  .letter { padding: 65px 24px 50px; }
+  .letter h2 { font-size: 32px; }
+  .arrival { grid-template-columns: 1fr; padding: 40px 32px; margin: 0 20px; gap: 30px; }
+  .location { border-left: 0; border-top: 1px solid #d6c9ae; padding: 28px 0 0; }
+  .arrivalTime { font-size: 76px; }
+  .attire { padding: 70px 20px 75px; }
+  .cards { grid-template-columns: 1fr; gap: 20px; }
+  .card { padding: 34px 26px; }
+  .card h3 { font-size: 30px; }
+  .attireIcon { right: 22px; top: 20px; width: 47px; height: 65px; }
+  .closing { padding: 65px 24px 70px; }
+  .closing::before { margin-top: -90px; }
+}
