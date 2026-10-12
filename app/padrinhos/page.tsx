@@ -79,8 +79,8 @@ export default function PadrinhosPage() {
             <h3>Para os padrinhos</h3>
             <p className={styles.cardLead}>Elegância para celebrar com a gente.</p>
             <ul>
-              <li>Vocês têm liberdade para escolher a cor do terno, mas <strong>não são permitidos ternos azuis, em qualquer tonalidade.</strong> Pedimos também que <strong>evitem cinza médio e cinza-chumbo (grafite).</strong></li>
-              <li>Recomendamos terno completo, com camisa social, gravata e sapato social, em uma composição elegante e alinhada à ocasião.</li>
+              <li><strong>Não são permitidos ternos azuis, em qualquer tonalidade.</strong></li>
+              <li>Recomendamos <strong>terno completo cinza com camisa social branca</strong>, gravata e sapato social, em uma composição elegante e alinhada à ocasião.</li>
             </ul>
           </article>
         </div>
