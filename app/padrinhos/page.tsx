@@ -80,9 +80,28 @@ export default function PadrinhosPage() {
             <p className={styles.cardLead}>Elegância para celebrar com a gente.</p>
             <ul>
               <li><strong>Não são permitidos ternos azuis, em qualquer tonalidade.</strong></li>
-              <li>Recomendamos <strong>terno completo cinza com camisa social branca</strong>, gravata e sapato social, em uma composição elegante e alinhada à ocasião.</li>
+              <li>Recomendamos <strong>terno completo cinza médio ou escuro com camisa social branca</strong>, gravata e sapato social, seguindo as referências abaixo.</li>
+              <li><strong>Não são permitidos ternos cinza claro</strong>, como o exemplo sinalizado abaixo.</li>
             </ul>
           </article>
+        </div>
+        <div className={styles.references} aria-labelledby="references-title">
+          <h3 id="references-title">Referências para os padrinhos</h3>
+          <p>Escolham um terno em um tom parecido com os exemplos de cinza médio ou escuro.</p>
+          <div className={styles.referenceGrid}>
+            <figure className={styles.reference}>
+              <img src="/images/padrinhos/referencia-cinza-escuro.jpeg" alt="Terno cinza escuro com camisa branca e gravata clara, referência de traje para os padrinhos" loading="lazy" width="666" height="1000" />
+              <figcaption><strong>Pode · Cinza escuro</strong><span>Uma referência para a escolha do terno.</span></figcaption>
+            </figure>
+            <figure className={styles.reference}>
+              <img src="/images/padrinhos/referencia-cinza-medio.jpeg" alt="Terno cinza médio com camisa branca e gravata cinza, referência de traje para os padrinhos" loading="lazy" width="990" height="1280" />
+              <figcaption><strong>Pode · Cinza médio</strong><span>Sigam esta linha de tonalidade.</span></figcaption>
+            </figure>
+            <figure className={`${styles.reference} ${styles.referenceNo}`}>
+              <img src="/images/padrinhos/nao-pode.png" alt="Terno cinza claro com símbolo de proibição: esta tonalidade não é permitida para os padrinhos" loading="lazy" width="958" height="1188" />
+              <figcaption><strong>Não pode · Cinza claro</strong><span>Este tom é claro demais para a proposta.</span></figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 

@@ -50,6 +50,17 @@
 .card li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border: 1px solid var(--accent); transform: rotate(45deg); }
 .card li + li { margin-top: 21px; }
 .card strong { font-weight: 600; }
+.references { margin-top: 48px; text-align: left; }
+.references h3 { margin: 0 0 12px; font: 400 32px/1.2 var(--font-serif); }
+.references > p { color: #716a61; font: 400 17px/1.8 var(--font-serif); margin: 0 0 26px; }
+.referenceGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.reference { margin: 0; border: 1px solid var(--line); background: #fffdf9; overflow: hidden; }
+.reference img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+.reference figcaption { padding: 20px; }
+.reference figcaption strong { display: block; color: var(--accent); font: 600 18px/1.4 var(--font-serif); }
+.reference figcaption span { display: block; margin-top: 8px; color: #716a61; font: 400 15px/1.6 var(--font-serif); }
+.referenceNo { border-color: #d9aaa3; }
+.referenceNo figcaption strong { color: #9a4038; }
 .closing { position: relative; padding: 85px 24px 95px; text-align: center; border-top: 1px solid var(--line); background: #f0eadf; }
 .closing::before { content: ''; display: block; width: 1px; height: 48px; background: #c6b58e; margin: -110px auto 40px; }
 .closing h2 { font-size: clamp(38px, 5vw, 58px); margin: 25px 0 30px; }
@@ -77,6 +88,8 @@
   .cards { grid-template-columns: 1fr; gap: 20px; }
   .card { padding: 34px 26px; }
   .card h3 { font-size: 30px; }
+  .referenceGrid { grid-template-columns: 1fr; gap: 20px; }
+  .references h3 { font-size: 28px; }
   .attireIcon { right: 22px; top: 20px; width: 47px; height: 65px; }
   .closing { padding: 65px 24px 70px; }
   .closing::before { margin-top: -90px; }
