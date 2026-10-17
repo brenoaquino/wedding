@@ -6,6 +6,7 @@ import PixCopyButton from "./PixCopyButton";
 
 const weddingDate = new Date("2026-11-07T16:00:00-03:00");
 const CAMICADO_URL = "https://www.camicado.com.br/lista/convidado/brenoepaula";
+const AMAZON_URL = "https://www.amazon.com.br/hz/wishlist/ls/246ZSSSTVI93I?ref_=wl_share";
 const RSVP_FORM_URL = "https://script.google.com/macros/s/AKfycbxat0kjMDmL9NZz8hXlUaz6EZRPAr6YM60AAlzqLW9r3spqFos0iVnhLQ-T3PgP571dbw/exec";
 const SPOTIFY_EMBED_URL = "https://open.spotify.com/embed/track/6VsvKPJ4xjVNKpI8VVZ3SV?utm_source=generator&theme=0";
 const BIBLE_VERSE_URL = "https://www.bibliaonline.com.br/acf/is/41/20";
@@ -271,11 +272,12 @@ export default function Home() {
             <a className="gift-option-action" href={CAMICADO_URL} target="_blank" rel="noopener noreferrer">Ver lista <span>↗</span></a>
           </article>
 
-          <article className="gift-option-card is-placeholder">
+          <article className="gift-option-card">
             <div className="brand-logo amazon-logo" aria-label="Amazon">amazon<span>⌣</span></div>
             <h3>Lista na Amazon</h3>
-            <p>Também estamos preparando uma segunda opção para facilitar a escolha de quem preferir.</p>
-            <span className="gift-option-disabled">Em breve</span>
+            <p>Também selecionamos presentes na Amazon para facilitar a escolha de quem preferir.</p>
+            <p>Ao finalizar a compra, se aparecer a opção “Este pedido contém um presente”, deixe-a marcada, por favor.</p>
+            <a className="gift-option-action" href={AMAZON_URL} target="_blank" rel="noopener noreferrer">Ver lista <span>↗</span></a>
           </article>
 
           <article className="gift-option-card pix-card">
