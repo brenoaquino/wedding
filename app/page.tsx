@@ -263,6 +263,7 @@ export default function Home() {
         <p className="eyebrow dark">Lista de presentes</p>
         <h2>O melhor presente é ter você conosco</h2>
         <p className="gift-options-intro">A sua presença é o que realmente importa. Para quem desejar nos presentear, reunimos algumas opções com muito carinho.</p>
+        <p className="gift-options-note">Se preferir nos presentear com algo fora da lista, também receberemos com muito carinho.</p>
 
         <div className="gift-option-grid">
           <article className="gift-option-card">

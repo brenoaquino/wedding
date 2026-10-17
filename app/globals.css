@@ -125,7 +125,9 @@ h2 em { color: var(--gold); font-weight: 400; }
 
 .gift-options { padding: 115px clamp(24px, 8vw, 130px); text-align: center; background: #efeadf; }
 .gift-options > h2 { max-width: 760px; margin: auto; }
-.gift-options-intro { max-width: 650px; margin: 26px auto 58px; color: var(--muted); font: 400 18px/1.75 var(--font-serif); }
+.gift-options-intro { max-width: 650px; margin: 26px auto 0; color: var(--muted); font: 400 18px/1.75 var(--font-serif); }
+.gift-options-note { max-width: 580px; margin: 24px auto 58px; color: #786b52; font: italic 400 17px/1.8 var(--font-serif); }
+.gift-options-note::before { content: ''; display: block; width: 40px; height: 1px; margin: 0 auto 18px; background: var(--gold); }
 .gift-option-grid { max-width: 1100px; margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .gift-option-card { min-height: 390px; padding: 46px 38px 38px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border: 1px solid var(--line); background: var(--ivory); }
 .gift-option-card.is-placeholder { background: #faf8f3; }
